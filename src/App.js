@@ -8,6 +8,12 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Tooltip from '@material-ui/core/Tooltip';
 import AssignmentOutlinedIcon from '@material-ui/icons/AssignmentOutlined';
+import Dialog from '@material-ui/core/Dialog';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Slide from '@material-ui/core/Slide';
+import Link from '@material-ui/core/Link';
 
 import './App.css';
 
@@ -18,6 +24,10 @@ const darkTheme = createMuiTheme({
 });
 
 const textBoxRows = 20;
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 function App() {
   const [inputText, setInputText] = React.useState('');
@@ -34,6 +44,16 @@ function App() {
   const copyToClipboard = () => {
     navigator.clipboard.writeText(outputText);
   }
+
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -88,6 +108,28 @@ function App() {
         <Grid container direction="row" justify="center" alignItems="center" className="btn-submit">
           <Button disabled={!inputText} variant="outlined" color="secondary" onClick={submit}>Summarize</Button>
         </Grid>
+      </Container>
+      <Container className="footer">
+        <Typography gutterBottom>
+          <Link href="#" onClick={handleClickOpen} color="inherit">
+            About
+          </Link>
+        </Typography>
+        <Dialog
+          open={isModalOpen}
+          TransitionComponent={Transition}
+          keepMounted
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-slide-title"
+          aria-describedby="alert-dialog-slide-description"
+        >
+          <DialogTitle id="alert-dialog-slide-title">{"Sažimanje teksta pomoću pokazivač-generator neuronskih mreža"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+              TODO: Opis sustava
+          </DialogContentText>
+          </DialogContent>
+        </Dialog>
       </Container>
     </ThemeProvider>
   );
