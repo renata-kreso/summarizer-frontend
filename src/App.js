@@ -12,11 +12,13 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import DialogActions from '@material-ui/core/DialogActions';
 import Slide from '@material-ui/core/Slide';
 import Link from '@material-ui/core/Link';
 import axios from 'axios';
 
 import './App.css';
+import { about } from './About.js';
 
 const darkTheme = unstable_createMuiStrictModeTheme({
   palette: {
@@ -127,12 +129,16 @@ function App() {
           onClose={handleClose}
           aria-labelledby="alert-dialog-slide-title"
           aria-describedby="alert-dialog-slide-description"
+          className="about"
         >
-          <DialogTitle id="alert-dialog-slide-title">{"Sažimanje teksta pomoću pokazivač-generator neuronskih mreža"}</DialogTitle>
-          <DialogContent>
+          <DialogTitle id="alert-dialog-slide-title" className="about-centered">{about.title}</DialogTitle>
+          <DialogContent dividers={true}>
             <DialogContentText id="alert-dialog-slide-description">
-              TODO: Opis sustava
-          </DialogContentText>
+              {about.description}
+            </DialogContentText>
+            <DialogActions>
+              <Typography>{about.author}</Typography>
+            </DialogActions>
           </DialogContent>
         </Dialog>
       </Container>
