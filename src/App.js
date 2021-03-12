@@ -3,7 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { unstable_createMuiStrictModeTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Tooltip from '@material-ui/core/Tooltip';
@@ -14,10 +14,11 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 import Link from '@material-ui/core/Link';
+import axios from 'axios';
 
 import './App.css';
 
-const darkTheme = createMuiTheme({
+const darkTheme = unstable_createMuiStrictModeTheme({
   palette: {
     type: 'dark'
   }
@@ -36,9 +37,13 @@ function App() {
   };
   const [outputText, setOutputText] = React.useState('');
 
-  const submit = () => {
-    // TODO: get summary from backend
-    setOutputText('Generated summary');
+  const submit = async () => {
+    axios.post('http://127.0.0.1:5000/summarize', { inputText }).then(res => {
+      if (res.status === 200 && res.data)
+        setOutputText(res.data);
+      else
+        setOutputText('Unable to produce a summary.');
+    });
   }
 
   const copyToClipboard = () => {
@@ -73,8 +78,8 @@ function App() {
               multiline
               rows={textBoxRows}
               variant="outlined"
-              fullWidth="true"
-              required="true"
+              fullWidth={true}
+              required={true}
               color="secondary"
               value={inputText}
               onChange={handleChange}
@@ -99,8 +104,8 @@ function App() {
               multiline
               rows={textBoxRows}
               variant="outlined"
-              fullWidth="true"
-              disabled="true"
+              fullWidth={true}
+              disabled={true}
               value={outputText}
             />
           </Grid>
