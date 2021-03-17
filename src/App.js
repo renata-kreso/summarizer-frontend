@@ -19,6 +19,7 @@ import axios from 'axios';
 
 import './App.css';
 import { about } from './About.js';
+import Header from './components/Header.js'
 
 const darkTheme = unstable_createMuiStrictModeTheme({
   palette: {
@@ -26,7 +27,7 @@ const darkTheme = unstable_createMuiStrictModeTheme({
   }
 });
 
-const textBoxRows = 20;
+const textBoxRows = 18;
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -65,10 +66,8 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Container>
-        <Typography variant="h3" gutterBottom>
-          Text summarizer app
-        </Typography>
+      <Header />
+      <Container maxWidth={false}>
         <Grid container spacing={2}>
           <Grid item xs={6}>
             <Typography variant="h5" gutterBottom>
@@ -116,7 +115,7 @@ function App() {
           <Button disabled={!inputText} variant="outlined" color="secondary" onClick={submit}>Summarize</Button>
         </Grid>
       </Container>
-      <Container className="footer">
+      <Container className="footer" maxWidth={false}>
         <Typography gutterBottom>
           <Link href="#" onClick={handleClickOpen} color="inherit">
             About
