@@ -19,12 +19,11 @@ class Header extends React.Component {
   render() {
     const { classes } = this.props;
 
-    // TODO: change language functionality
     return (
       <div>
         <AppBar position="static" color="inherit" className={classes.root}>
           <Toolbar>
-            <Typography variant="h4" className={classes.title}>
+            <Typography variant="h5" className={classes.title}>
               Text summarizer
             </Typography>
             <Button color="inherit">CRO</Button>
