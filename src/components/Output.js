@@ -23,8 +23,8 @@ class Output extends React.Component {
         return (
             <div>
                 <Grid container direction="row" justify="space-between" alignItems="center">
-                    <Typography variant="h5" gutterBottom>TLDR</Typography>
-                    <Tooltip aria-label="copy" title="Copy to clipboard">
+                    <Typography variant="h5" gutterBottom>Sažetak</Typography>
+                    <Tooltip aria-label="copy" title="Kopiraj u međuspremnik">
                         <Button>
                             <AssignmentOutlinedIcon onClick={() => this.copyToClipboard(outputText)} />
                         </Button>
@@ -32,7 +32,7 @@ class Output extends React.Component {
                 </Grid>
                 <TextField
                     id="output-text"
-                    label="Summary"
+                    label="Stvoreni sažetak"
                     multiline
                     rows={textBoxRows}
                     variant="outlined"

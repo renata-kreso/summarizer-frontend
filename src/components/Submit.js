@@ -32,7 +32,7 @@ class Submit extends React.Component {
     render() {
         const { inputText, classes } = this.props;
         return (
-            <Button disabled={!inputText} onClick={this.handleSubmit} variant="outlined" color="secondary" className={classes.buttonMargin}>Summarize</Button>
+            <Button disabled={!inputText} onClick={this.handleSubmit} variant="outlined" color="secondary" className={classes.buttonMargin}>Stvori sažetak</Button>
         );
     }
 }

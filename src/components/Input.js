@@ -26,11 +26,11 @@ class Input extends React.Component {
         return (
             <div>
                 <Typography variant="h5" gutterBottom>
-                    Input text
+                    Tekst za sažimanje
                 </Typography>
                 <TextField
                     id="input-text"
-                    label="Long text"
+                    label="Ulazni tekst"
                     multiline
                     rows={textBoxRows}
                     variant="outlined"

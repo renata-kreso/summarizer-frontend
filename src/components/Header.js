@@ -4,7 +4,6 @@ import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
 
 const useStyles = theme => ({
   root: {
@@ -24,13 +23,8 @@ class Header extends React.Component {
         <AppBar position="static" color="inherit" className={classes.root}>
           <Toolbar>
             <Typography variant="h5" className={classes.title}>
-              Text summarizer
+              Sustav za sažimanje teksta
             </Typography>
-            <Button color="inherit">CRO</Button>
-            <Typography>
-              /
-            </Typography>
-            <Button color="inherit">ENG</Button>
           </Toolbar>
         </AppBar>
         <br />

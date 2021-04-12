@@ -50,7 +50,7 @@ class About extends React.Component {
             <Container className={classes.footer} maxWidth={false}>
                 <Typography gutterBottom>
                     <Link href="#" onClick={this.handleOpen} color="inherit">
-                        About
+                        O aplikaciji
                     </Link>
                 </Typography>
                 <Dialog
@@ -61,10 +61,10 @@ class About extends React.Component {
                     aria-labelledby="alert-dialog-slide-title"
                     aria-describedby="alert-dialog-slide-description"
                 >
-                    <DialogTitle id="alert-dialog-slide-title" className={classes.aboutCentered}>Naslov</DialogTitle>
+                    <DialogTitle id="alert-dialog-slide-title" className={classes.aboutCentered}>Sažimanje teksta pomoću pokazivač-generator neuronskih mreža</DialogTitle>
                     <DialogContent dividers={true}>
                         <DialogContentText id="alert-dialog-slide-description">
-                            Opis Opis Opis Opis Opis Opis Opis Opis Opis Opis Opis Opis Opis Opis Opis Opis Opis Opis Opis Opis
+                            Ovaj sustav ostvaren je u sklopu diplomskog rada na temu "Sažimanje teksta pomoću pokazivač-generator neuronskih mreža".
                         </DialogContentText>
                         <DialogActions>
                             <Typography>Renata Krešo</Typography>
